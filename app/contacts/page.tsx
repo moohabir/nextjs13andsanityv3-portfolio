@@ -52,7 +52,7 @@ export default function Contacts() {
   }, [send]);
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center py-4 ">
       <div className="w-1/2 ">
         {send && (
           <p className="bg-color_blue text-center text-3xl font-bold">
@@ -62,13 +62,14 @@ export default function Contacts() {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="flex flex-col p-4 space-y-4  bg-blue-500 rounded "
+          className="flex flex-col p-4 space-y-4  bg-slate-500 rounded "
         >
           <h1 className="text-center text-3xl font-bold ">Contact me</h1>
           <label htmlFor="name">Name:</label>
           <input
             name="name"
             value={name}
+            placeholder="Your Name"
             onChange={(e) => setName(e.target.value)}
             type="text"
             id="name"
@@ -81,6 +82,7 @@ export default function Contacts() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
+            placeholder="Your email"
             id="email"
             className="border border-gray-300 px-2 py-1 bg-transparent rounded"
           />
@@ -91,6 +93,7 @@ export default function Contacts() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             id="message"
+            placeholder="Your Message"
             className="border border-gray-300 px-2 py-1 bg-transparent rounded"
           />
           <button

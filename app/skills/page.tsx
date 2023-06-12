@@ -16,16 +16,20 @@ export default async function Skills() {
   const skills = await client.fetch(query);
 
   return (
-    <div className="text-center">
-      Blog page
-      {skills.map((skill: any) => (
-        <div key={skill.id}>
-          <h2>{skill.title}</h2>
-          <p>{skill.description}</p>
-          <p>{skill._createdAt}</p>
-          <p>{skill.blockContent}</p>
-        </div>
-      ))}
+    <div className="text-center pb-10  ">
+      <h1 className="font-bold text-3xl pb-10">My Skills</h1>
+      <div className=" grid grid-cols-2  md:grid-cols-4 ">
+        {skills.map((skill: any) => (
+          <div
+            key={skill.id}
+            className="rounded-xl bg-slate-500 py-4 mb-4 w-1/2 m-auto "
+          >
+            <div className="bg-slate-500 ">
+              <h2>{skill.title}</h2>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
