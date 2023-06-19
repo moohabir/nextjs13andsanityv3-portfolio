@@ -1,22 +1,39 @@
-import { client } from '@/lib/client';
-import { Post } from '@/types';
+'use client';
+import { urlForImage } from '@/lib/image';
 
-type props = {
-  posts: Post[];
+import { Post } from '@/types';
+import { Button } from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
+
+type Props = {
+  post?: Post[]; // Add a "?" to make the posts prop optional
 };
-export default async function BlogList({ posts }: props) {
+
+const BlogList = ({ post }: any) => {
+  if (!post) {
+    return null; // Return null or show a loading/error state when posts is undefined
+  }
+
   return (
-    <div className="">
-      {posts.map((post) => (
-        <div
-          key={post.id}
-          className="rounded-xl bg-slate-500 py-4 mb-4 w-1/2 flex flex-col justify-center items-center m-auto"
-        >
-          <h2>{post.title}</h2>
-          <p>{post.description}</p>
-          <p>{post._createdAt}</p>
-        </div>
-      ))}
+    <div className="flex flex-col">
+      <div className="rounded-xl bg-slate-500 py-4 mb-4 w-1/2 flex flex-col justify-center items-center m-auto md:w-1/2">
+        <Image
+          src={urlForImage(post.mainImage.asset._ref).url()}
+          alt=""
+          width={500}
+          height={500}
+        />
+        <h2>{post.title}</h2>
+        <p>{post.description}</p>
+        <p>{post._createdAt}</p>
+
+        <Link href={`/blog/${post.slug.current}`}>
+          <Button>Read more</Button>
+        </Link>
+      </div>
     </div>
   );
-}
+};
+
+export default BlogList;

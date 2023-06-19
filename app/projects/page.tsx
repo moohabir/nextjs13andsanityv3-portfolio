@@ -1,6 +1,9 @@
+'use client';
 import { groq } from 'next-sanity';
 import { client } from '@/lib/client';
-//import Image from 'next/image';
+import Image from 'next/image';
+import { urlForImage } from '@/lib/image';
+import { motion } from 'framer-motion';
 
 const query = groq`
 *[_type=="project"]{
@@ -8,29 +11,38 @@ const query = groq`
 author->
 }|order(_createAt desc)`;
 
-//type props = {
-//query: string;
-//};
-
 export default async function Projects() {
-  //{cache:"force-cache"} or {cache:"no-store"}
   const projects = await client.fetch(query, { cache: 'no-store' });
+
+  const hoverAnimation = {
+    scale: 1.1,
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut',
+    },
+  };
+
   return (
-    <div className="text-center py-10 ">
-      <h1 className="text-center text-3xl font-bold p-4">My Projects</h1>
-      <div className="grid grid-cols-1  md:grid-cols-2">
+    <div className="text-center">
+      <h1 className="font-bold text-3xl pb-10 ">My Projects</h1>
+      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10 px-4 ">
         {projects.map((project: any) => (
-          <div
+          <motion.div
             key={project.id}
-            className="rounded-xl bg-slate-500 py-4 mb-4 w-full md:w-1/2 flex flex-col justify-center items-center m-auto "
+            className="rounded-xl bg-slate-500 py-4  "
+            whileHover={hoverAnimation}
           >
-            {/*<Image
-            src={project.img}
-            alt={project.title}
-      />*/}
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-          </div>
+            <div className="bg-slate-500 w-ful">
+              <Image
+                src={urlForImage(project?.image?.asset?._ref).url()}
+                alt=""
+                width={500}
+                height={500}
+                className="over-follow-hidden rounded-sm w-full "
+              />
+              <h2>{project.title}</h2>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,16 +1,11 @@
 export interface Post {
-  id: number | string;
+  i_d: number | string;
+  slug: string;
   title: string;
   description: string;
   _createdAt: string;
   blockContent: any;
-}
-
-export interface Blog {
-  id: number | string;
-  title: string;
-  description: string;
-  _createdAt: string;
+  current: string;
 }
 
 export interface About {

@@ -97,7 +97,7 @@ export default function Contacts() {
             className="border border-gray-300 px-2 py-1 bg-transparent rounded"
           />
           <button
-            className="bg-blue-500 text-white px-4 py-2"
+            className="bg-blue-500 text-white px-4 py-2 rounded-xl"
             type="submit"
           >
             Submit

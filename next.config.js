@@ -23,5 +23,8 @@ const nextConfig = {
       transform: '@mui/icons-material/{{ matches.[1] }}/{{member}}',
     },
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 };
 module.exports = nextConfig;

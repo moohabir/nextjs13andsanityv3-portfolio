@@ -22,13 +22,13 @@ import Blog from '../blog/page';
 //};
 export default function Home() {
   return (
-    <main className="bg-slate-800 text-white p-10 ">
+    <main className="bg-slate-800 text-white ">
       <Banner />
-      {/* @ts-expect-error Async Server Component */}
+
       <About />
-      {/* @ts-expect-error Async Server Component */}
+
       <Skills />
-      {/* @ts-expect-error Async Server Component */}
+
       <Projects />
       {/* @ts-expect-error Async Server Component */}
       <Blog />
