@@ -28,8 +28,11 @@ const BlogList = ({ post }: any) => {
         <p>{post.description}</p>
         <p>{post._createdAt}</p>
 
-        <Link href={`/blog/${post.slug.current}`}>
-          <Button>Read more</Button>
+        <Link
+          href={`/blog/${post.slug.current}`}
+          className="text-slate-100"
+        >
+          <Button className="text-slate-100">Read more</Button>
         </Link>
       </div>
     </div>

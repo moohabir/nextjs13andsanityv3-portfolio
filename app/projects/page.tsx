@@ -32,16 +32,14 @@ export default async function Projects() {
             className="rounded-xl bg-slate-500 py-4  "
             whileHover={hoverAnimation}
           >
-            <div className="bg-slate-500 w-ful">
-              <Image
-                src={urlForImage(project?.image?.asset?._ref).url()}
-                alt=""
-                width={500}
-                height={500}
-                className="over-follow-hidden rounded-sm w-full "
-              />
-              <h2>{project.title}</h2>
-            </div>
+            <Image
+              src={urlForImage(project?.image?.asset?._ref).url()}
+              alt=""
+              width={500}
+              height={500}
+              className="over-follow-hidden rounded-sm w-full "
+            />
+            <h2>{project.title}</h2>
           </motion.div>
         ))}
       </div>

@@ -6,6 +6,9 @@ export interface Post {
   _createdAt: string;
   blockContent: any;
   current: string;
+  body: any;
+  author: string;
+  image: string;
 }
 
 export interface About {
