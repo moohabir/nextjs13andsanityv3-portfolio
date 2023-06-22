@@ -23,9 +23,9 @@ export default async function Projects() {
   };
 
   return (
-    <div className="text-center">
+    <div className="text-center ">
       <h1 className="font-bold text-3xl pb-10 ">My Projects</h1>
-      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10 px-4 ">
+      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10 px-4 mx-20">
         {projects.map((project: any) => (
           <motion.div
             key={project.id}
@@ -37,7 +37,7 @@ export default async function Projects() {
               alt=""
               width={500}
               height={500}
-              className="over-follow-hidden rounded-sm w-full "
+              className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover"
             />
             <h2>{project.title}</h2>
           </motion.div>

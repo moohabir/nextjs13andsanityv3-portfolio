@@ -21,13 +21,14 @@ export default async function Blog() {
   return (
     <div className="text-center ">
       <h1 className="text-3xl font-bold mb-5 mt.5">My blog posts</h1>
-
-      {posts.map((post: any) => (
-        <BlogList
-          key={post.title}
-          post={post}
-        />
-      ))}
+      <div className="grid grid-cols-2 gap-10 md:grid-cols-1 md:gap-8 mx-10">
+        {posts.map((post: any) => (
+          <BlogList
+            key={post.title}
+            post={post}
+          />
+        ))}
+      </div>
     </div>
   );
 }

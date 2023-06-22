@@ -27,15 +27,14 @@ export default async function Skills() {
             key={skill.id}
             className="rounded-xl bg-slate-600 p-4"
           >
-            <div className="">
-              <Image
-                src={urlForImage(skill?.image?.asset?._ref).url()}
-                alt=""
-                width={50}
-                height={50}
-                className="over-follow-hidden rounded-sm w-full "
-              />
-            </div>
+            <Image
+              src={urlForImage(skill?.image?.asset?._ref).url()}
+              alt=""
+              width={50}
+              height={50}
+              className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover"
+            />
+
             <h2 className="">{skill.title}</h2>
             {/*{skill.tags.map((tag) => (
                 <Chip key={tag}>{tag}</Chip>
