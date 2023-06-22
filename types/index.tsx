@@ -1,5 +1,5 @@
 export interface Post {
-  i_d: number | string;
+  _id: number | string;
   slug: string;
   title: string;
   description: string;
@@ -9,6 +9,9 @@ export interface Post {
   body: any;
   author: string;
   image: string;
+  mainImage: string;
+  asset: string;
+  _ref: string;
 }
 
 export interface About {

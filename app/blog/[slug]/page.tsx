@@ -13,54 +13,59 @@ type Props = {
 
 export default async function SingleBlog({ params: { slug } }: Props) {
   const query = groq`*[_type == "post" && slug.current == $slug][0]{
+    ...,
     title,
     body,
+    _createdAt,
+    mainImage{
+    asset->{_ref }
+  },
     "name": author->name,
     "authorImage": author->image
   }`;
 
   const post: Post = await client.fetch(query, { slug });
 
+  const ptComponents = {
+    block: {
+      h2: ({ children }: any) => {
+        return <h2 className="text-xl mb-4">{children}</h2>;
+      },
+      normal: ({ children }: any) => {
+        return (
+          <p className="text-center mb-4 max-w-prose  sm:max-w-none sm:w-full whitespace-normal break-words px-4 py-1">
+            {children}
+          </p>
+        );
+      },
+    },
+  };
+
   return (
-    <div>
+    <div className="">
+      <h1 className="text-4xl font-bold">{post.title}</h1>
       {/*<Image
-        src={urlForImage(post.mainImage?.asset?._ref).url()}
+        src={urlForImage(post?.mainImage?.asset?._ref)?.url()}
         alt=""
-        width={500}
-        height={500}
+        width={50}
+        height={50}
   />*/}
-      <div className="">
-        <h2>{post.title}</h2>
+
+      <div className="text-center flex justify-between">
         <h2>{post?.name}</h2>
+        <span>
+          {new Date(post._createdAt).toLocaleDateString('en-us', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+          })}
+        </span>
       </div>
       <div className="">
         <PortableText
           value={post.body}
-          //components={/* optional object of custom components to use */}
-          serializers={{
-            h1: (props) => (
-              <h1
-                style={{ color: 'red' }}
-                {...props}
-              />
-            ),
-            h2: (props) => (
-              <h1
-                style={{ color: 'red' }}
-                {...props}
-              />
-            ),
-            p: (props) => (
-              <h1
-                style={{ color: 'blue' }}
-                {...props}
-              />
-            ),
-            li: ({ children }) => (
-              <li className="special-list-item">{children}</li>
-            ),
-            //someCustomType: YourComponent,
-          }}
+          //className="prose"
+          components={ptComponents}
         />
       </div>
     </div>

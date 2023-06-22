@@ -16,17 +16,27 @@ const BlogList = ({ post }: any) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col text-slate-100 ">
       <div className="rounded-xl bg-slate-500 py-4 mb-4 w-1/2 flex flex-col justify-center items-center m-auto md:w-1/2">
         <Image
           src={urlForImage(post.mainImage.asset._ref).url()}
           alt=""
           width={500}
           height={500}
+          className="w-full overflow-hidden rounded-sm"
         />
-        <h2>{post.title}</h2>
-        <p>{post.description}</p>
-        <p>{post._createdAt}</p>
+        <div className="m-4">
+          <h1 className="text-3xl font-bold">{post.title}</h1>
+          <p className="text-sm">{post.description}</p>
+
+          <span className="text-sm">
+            {new Date(post._createdAt).toLocaleDateString('en-us', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </span>
+        </div>
 
         <Link
           href={`/blog/${post.slug.current}`}
