@@ -53,18 +53,18 @@ export default function Contacts() {
 
   return (
     <div className="flex justify-center py-4 ">
-      <div className="w-1/2 ">
+      <div className="w-full">
         {send && (
           <p className="bg-color_blue text-center text-3xl font-bold">
             Thanks. Your Message has been sent Succesfully
           </p>
         )}
+        <h1 className="text-center text-3xl font-bold ">Contact me</h1>
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="flex flex-col p-4 space-y-4  bg-slate-500 rounded "
+          className="p-4 space-y-4 rounded bg-slate-200 grid grid-cols-1 gap-10  md:grid-cols-1 md:gap-10  mx-20 "
         >
-          <h1 className="text-center text-3xl font-bold ">Contact me</h1>
           <label htmlFor="name">Name:</label>
           <input
             name="name"

@@ -16,7 +16,7 @@ const BlogList = ({ post }: any) => {
   }
 
   return (
-    <div className="rounded-xl bg-slate-500 py-4 mb-4  ">
+    <div className=" py-4 mb-4  border rounded-lg ">
       <Image
         src={urlForImage(post.mainImage.asset._ref).url()}
         alt=""
@@ -41,7 +41,7 @@ const BlogList = ({ post }: any) => {
         href={`/blog/${post.slug.current}`}
         className="text-slate-100"
       >
-        <Button className="text-slate-100">Read more</Button>
+        <Button className="text-black">Read more</Button>
       </Link>
     </div>
   );

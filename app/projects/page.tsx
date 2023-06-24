@@ -4,6 +4,8 @@ import { client } from '@/lib/client';
 import Image from 'next/image';
 import { urlForImage } from '@/lib/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Chip } from '@mui/material';
 
 const query = groq`
 *[_type=="project"]{
@@ -23,13 +25,14 @@ export default async function Projects() {
   };
 
   return (
-    <div className="text-center ">
-      <h1 className="font-bold text-3xl pb-10 ">My Projects</h1>
-      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10 px-4 mx-20">
+    <div className="text-center mb-10 ">
+      <h1 className="font-bold text-3xl  pb-4">My Projects</h1>
+      <p className="pb-10">Browse my recently created projects</p>
+      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10  mx-20  bg-slate-200 p-10 rounded-lg ">
         {projects.map((project: any) => (
           <motion.div
             key={project.id}
-            className="rounded-xl bg-slate-500 py-4  "
+            className="rounded-xl bg-slate-100 p-4 "
             whileHover={hoverAnimation}
           >
             <Image
@@ -39,7 +42,31 @@ export default async function Projects() {
               height={500}
               className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover"
             />
-            <h2>{project.title}</h2>
+            <h2 className="p-4 text-2xl font-bold">{project.title}</h2>
+            <h3 className="text-xl">Tech Stacks used :</h3>
+            <div className="px-2 grid grid-cols-6 gap-4 md:grid-cols-3 md:gap-4 ">
+              {project.tags.map((tag: any) => (
+                <Chip
+                  key={tag}
+                  label={tag}
+                  color="primary"
+                  size="small"
+                  className="bg-slate-100 text-slate-500 text-sm"
+                />
+              ))}
+            </div>
+            <div className="flex gap-4 px-4 mt-4 ">
+              <Link href={project?.link}>
+                <button className="bg-black text-white w-32 rounded-md">
+                  Demo
+                </button>
+              </Link>
+              <Link href={project?.code}>
+                <button className="bg-slate-600 text-white w-32 rounded-md">
+                  Code
+                </button>
+              </Link>
+            </div>
           </motion.div>
         ))}
       </div>

@@ -53,10 +53,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className="flex justify-center gap-10 sticky top-0 z-10 py-3 bg-slate-600 items-center">
+    <div className="flex justify-center gap-10 sticky top-0 z-10 py-3 bg-slate-100">
       <Link
         href="/"
-        className="hover:text-blue-600 px-20 text-slate-100 text-2xl font-bold"
+        className="hover:animate-bounce  px-20 text-black text-2xl font-bold"
       >
         MY Portfolio
       </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
       {/* Mobile version */}
       <div className="hidden md:block">
         <button
-          className="text-slate-100 text-3xl font-bold focus:outline-none"
+          className="text-black text-3xl font-bold focus:outline-none"
           onClick={() => setShow(!show)}
         >
           {show ? <Close /> : <Menu />}
@@ -76,7 +76,7 @@ export default function Navbar() {
         {navList.map((list) => (
           <nav
             key={list.id}
-            className={`text-blue-500 text-center hover:text-slate-100 ${
+            className={`text-black text-center hover:text-slate-500 ${
               activeItem === list.url ? 'bg-slate-700' : ''
             }`}
           >
@@ -89,7 +89,7 @@ export default function Navbar() {
       <AnimatePresence>
         {show && (
           <motion.div
-            className="hidden md:block absolute z-20 bg-slate-600 w-full h-screen py-10 top-16"
+            className="hidden md:block absolute z-20 bg-slate-100 w-full h-screen py-10 top-16 "
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
@@ -98,7 +98,7 @@ export default function Navbar() {
             {navList.map((list) => (
               <motion.nav
                 key={list.id}
-                className={`text-blue-500 text-center hover:text-slate-100 block py-2 ${checkActiveItem(
+                className={`text-black text-center hover:text-slate-500 block py-2 ${checkActiveItem(
                   list.url
                 )}`}
                 onClick={() => handleClick(list.url)}
