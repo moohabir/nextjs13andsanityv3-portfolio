@@ -25,10 +25,10 @@ export default async function Projects() {
   };
 
   return (
-    <div className="text-center mb-10 ">
-      <h1 className="font-bold text-3xl  pb-4">My Projects</h1>
+    <div className="text-center mb-10 items-center flex justify-center gap-10 flex-col pt-10">
+      <h1 className="font-bold text-3xl ">My Projects</h1>
       <p className="pb-10">Browse my recently created projects</p>
-      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10  mx-20  bg-slate-200 p-10 rounded-lg ">
+      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10   bg-slate-200 p-10 rounded-lg ">
         {projects.map((project: any) => (
           <motion.div
             key={project.id}
@@ -44,7 +44,7 @@ export default async function Projects() {
             />
             <h2 className="p-4 text-2xl font-bold">{project.title}</h2>
             <h3 className="text-xl">Tech Stacks used :</h3>
-            <div className="px-2 grid grid-cols-6 gap-4 md:grid-cols-3 md:gap-4 ">
+            <div className="px-2 grid grid-cols-4 gap-4 md:grid-cols-3 md:gap-4 ">
               {project.tags.map((tag: any) => (
                 <Chip
                   key={tag}

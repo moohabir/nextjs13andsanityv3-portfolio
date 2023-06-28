@@ -38,7 +38,8 @@ const navList = [
 
 export default function Footer() {
   return (
-    <div className="bg-slate-100 text-black p-4 mt-auto">
+    <div className="footer">
+      <Divider />
       <div className="flex justify-evenly">
         <Link href="/">
           <h1 className="text-2xl font-bold p-2">My Portfolio</h1>

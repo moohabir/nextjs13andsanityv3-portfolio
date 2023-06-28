@@ -19,8 +19,8 @@ export default async function Blog() {
   const posts = await client.fetch(query);
 
   return (
-    <div className="text-center ">
-      <h1 className="text-3xl font-bold mb-5 mt.5">My blog posts</h1>
+    <div className="text-center mb-10 items-center flex justify-center gap-10 flex-col pt-10">
+      <h1 className="text-3xl font-bold mb-5 mt.5 block">My blog posts</h1>
       <div className="grid grid-cols-2 gap-10 md:grid-cols-1 md:gap-8 mx-10 ">
         {posts.map((post: any) => (
           <BlogList

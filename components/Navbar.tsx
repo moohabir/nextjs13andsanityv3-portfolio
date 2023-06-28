@@ -64,7 +64,7 @@ export default function Navbar() {
       {/* Mobile version */}
       <div className="hidden md:block">
         <button
-          className="text-black text-3xl font-bold focus:outline-none"
+          className="text-black text-2xl font-bold focus:outline-none"
           onClick={() => setShow(!show)}
         >
           {show ? <Close /> : <Menu />}

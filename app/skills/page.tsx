@@ -19,12 +19,12 @@ export default async function Skills() {
   const skills = await client.fetch(query);
 
   return (
-    <div className="text-center items-center ">
-      <h1 className="font-bold text-3xl pb-4">My Skills</h1>
-      <p className="pb-10">
+    <div className="text-center items-center flex justify-center gap-10 flex-col pt-10">
+      <h1 className="font-bold text-3xl pb-2">My Skills</h1>
+      <p className="pb-2">
         Here i am listing some skills and tools i am familir with.
       </p>
-      <div className=" grid grid-cols-6 gap-10 md:grid-cols-2 px-4 bg-slate-200  rounded-lg place-items-center py-4">
+      <div className=" grid grid-cols-4 gap-10 md:grid-cols-2 px-4 bg-slate-200  rounded-lg place-items-center py-4">
         {skills.map((skill: any) => (
           <div
             key={skill.id}
