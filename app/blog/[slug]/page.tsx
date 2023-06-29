@@ -14,26 +14,20 @@ type Props = {
 export default async function SingleBlog({ params: { slug } }: Props) {
   const query = groq`*[_type == "post" && slug.current == $slug][0]{
     ...,
-    title,
-    body,
-    _createdAt,
-    mainImage{
-    asset->{_ref }
-  },
-    "name": author->name,
-    "authorImage": author->image
-  }`;
+    author->
+  }
+   `;
 
   const post: Post = await client.fetch(query, { slug });
 
   const ptComponents = {
     block: {
       h2: ({ children }: any) => {
-        return <h2 className="text-xl mb-4">{children}</h2>;
+        return <h2 className="text-2xl mb-4 pr-96 ">{children}</h2>;
       },
       normal: ({ children }: any) => {
         return (
-          <p className="text-center mb-4 max-w-prose  sm:max-w-none sm:w-full whitespace-normal break-words px-4 py-1">
+          <p className="text-center m-auto mb-4 max-w-prose  sm:max-w-none sm:w-full whitespace-normal break-words px-4 py-1 ">
             {children}
           </p>
         );
@@ -42,18 +36,20 @@ export default async function SingleBlog({ params: { slug } }: Props) {
   };
 
   return (
-    <div className="">
-      <h1 className="text-4xl font-bold">{post.title}</h1>
-      {/*<Image
-        src={urlForImage(post?.mainImage?.asset?._ref)?.url()}
-        alt=""
-        width={50}
-        height={50}
-  />*/}
+    <div className="text-center items-center p-10">
+      <h1 className="text-4xl font-bold pb-10">{post.title}</h1>
 
-      <div className="text-center flex justify-between">
-        <h2>{post?.name}</h2>
-        <span>
+      <Image
+        src={urlForImage(post.mainImage).url()}
+        alt=""
+        width={500}
+        height={500}
+        className=" w-full h-96 sm:h-48 object-cover rounded-lg pb-10 flex justify-center"
+      />
+
+      <div className="text-center flex justify-evenly">
+        <h2 className="text-sm">{post.author.name}</h2>
+        <span className="px-10 text-sm">
           {new Date(post._createdAt).toLocaleDateString('en-us', {
             month: 'long',
             day: 'numeric',

@@ -39,10 +39,6 @@ export default async function Skills() {
             />
 
             <h2 className="">{skill.title}</h2>
-
-            {/*{skill.tags.map((tag) => (
-                <Chip key={tag}>{tag}</Chip>
-              ))}*/}
           </div>
         ))}
       </div>
