@@ -22,7 +22,7 @@ const BlogList = ({ post }: any) => {
         alt=""
         width={500}
         height={500}
-        className=" w-full h-32 sm:h-48 object-cover"
+        className=" w-full  h-48 sm:h-48 object-cover object-center mx-auto  "
       />
       <div className="m-4">
         <h1 className="text-3xl font-bold">{post.title}</h1>

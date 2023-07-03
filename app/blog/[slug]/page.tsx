@@ -36,18 +36,19 @@ export default async function SingleBlog({ params: { slug } }: Props) {
   };
 
   return (
-    <div className="text-center items-center p-10">
-      <h1 className="text-4xl font-bold pb-10">{post.title}</h1>
+    <div className="text-center items-center p-10 ">
+      <h1 className="text-4xl font-bold pb-10 ">{post.title}</h1>
+      <div className="w-full h-full rounded-md ">
+        <Image
+          src={urlForImage(post.mainImage).url()}
+          alt=""
+          width={500}
+          height={500}
+          className=" sm:h-48 object-cover object-center mx-auto px-10"
+        />
+      </div>
 
-      <Image
-        src={urlForImage(post.mainImage).url()}
-        alt=""
-        width={500}
-        height={500}
-        className=" w-full h-96 sm:h-48 object-cover rounded-lg pb-10 flex justify-center"
-      />
-
-      <div className="text-center flex justify-evenly">
+      <div className="text-center flex justify-center gap-20 pb-10">
         <h2 className="text-sm">{post.author.name}</h2>
         <span className="px-10 text-sm">
           {new Date(post._createdAt).toLocaleDateString('en-us', {

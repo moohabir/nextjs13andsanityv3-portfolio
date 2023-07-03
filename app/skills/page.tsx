@@ -27,7 +27,7 @@ export default async function Skills() {
       <div className=" grid grid-cols-4 gap-10 md:grid-cols-2 px-4 bg-slate-200  rounded-lg place-items-center py-4">
         {skills.map((skill: any) => (
           <div
-            key={skill.id}
+            key={skill._id}
             className="rounded-xl bg-white py-4 w-48 p-6 md:p-6 "
           >
             <Image
@@ -35,7 +35,7 @@ export default async function Skills() {
               alt=""
               width={50}
               height={50}
-              className="rounded-sm w-full h-32 sm:h-48 object-cover overflow-hidden md:px-0 "
+              className="rounded-sm w-full h-32 sm:h-48 object-cover object-center overflow-hidden mx-auto"
             />
 
             <h2 className="">{skill.title}</h2>

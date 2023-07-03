@@ -19,7 +19,7 @@ export default async function About() {
   const about = await client.fetch(query);
 
   return (
-    <div className="text-center py-10">
+    <div className="text-center py-10 mb-10">
       <h1 className="text-3xl font-bold mb-5 mt.5 ">About me</h1>
       {about.map((about: any) => (
         <div key={about.id}>

@@ -40,7 +40,7 @@ export default async function Projects() {
               alt=""
               width={500}
               height={500}
-              className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover"
+              className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover object-center"
             />
             <h2 className="p-4 text-2xl font-bold">{project.title}</h2>
             <h3 className="text-sm">Tech Stacks used :</h3>
