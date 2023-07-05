@@ -1,4 +1,5 @@
 'use client';
+import { NavList } from '@/types';
 import { Menu, Close } from '@mui/icons-material';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
@@ -40,16 +41,9 @@ const navList = [
 
 export default function Navbar() {
   const [show, setShow] = useState(false);
-  const [activeItem, setActiveItem] = useState('');
 
-  const handleClick = (url) => {
-    setActiveItem(url);
+  const handleClick = (url: any) => {
     setShow(false);
-  };
-
-  // Check if current path matches any menu item URL
-  const checkActiveItem = (url) => {
-    return Router.pathname === url ? 'bg-slate-700' : '';
   };
 
   return (
@@ -73,12 +67,10 @@ export default function Navbar() {
 
       {/* Desktop version */}
       <div className="flex flex-row gap-20 md:hidden md:space-y-2">
-        {navList.map((list) => (
+        {navList.map((list: NavList) => (
           <nav
             key={list.id}
-            className={`text-black text-center hover:text-slate-500 ${
-              activeItem === list.url ? 'bg-slate-700' : ''
-            }`}
+            className="text-black text-center hover:text-slate-500"
           >
             <Link href={list.url}>{list.title}</Link>
           </nav>
@@ -98,9 +90,7 @@ export default function Navbar() {
             {navList.map((list) => (
               <motion.nav
                 key={list.id}
-                className={`text-black text-center hover:text-slate-500 block py-2 ${checkActiveItem(
-                  list.url
-                )}`}
+                className="text-black text-center hover:text-slate-500 block py-2"
                 onClick={() => handleClick(list.url)}
                 initial={{ opacity: 0, x: '100%' }}
                 animate={{ opacity: 1, x: 0 }}

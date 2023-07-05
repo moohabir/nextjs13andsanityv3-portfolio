@@ -22,6 +22,12 @@ export interface About {
   _createdAt: string;
 }
 
+export interface NavList {
+  id: number;
+  title: string;
+  url: any;
+}
+
 export interface Skills {
   id: number | string;
   title: string;
