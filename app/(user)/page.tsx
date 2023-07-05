@@ -27,9 +27,7 @@ export default function Home() {
 
       <Skills />
       <About />
-
       <Projects />
-      {/* @ts-expect-error Async Server Component */}
       <Blog />
       <Contacts />
     </main>

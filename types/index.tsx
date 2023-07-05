@@ -1,6 +1,6 @@
 export interface Post {
   _id: number | string;
-  name: string;
+  name: any;
   slug: string;
   title: string;
   description: string;
@@ -8,9 +8,9 @@ export interface Post {
   blockContent: any;
   current: string;
   body: any;
-  author: string;
+  author: any;
   image: string;
-  mainImage: string;
+  mainImage: any;
   asset: string;
   _ref: string;
 }
