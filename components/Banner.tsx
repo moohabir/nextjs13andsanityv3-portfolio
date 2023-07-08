@@ -29,7 +29,7 @@ export default function Banner() {
         </div>
 
         <p className="text-black text-sm">
-          I am javascript hgfghvhjbkjnknllnlkknlknsl
+          Developing websites and solving client problems are my favorites.
         </p>
 
         <Link href="/contacts">
