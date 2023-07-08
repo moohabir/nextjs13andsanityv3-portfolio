@@ -16,10 +16,9 @@ export default function Banner() {
       >
         <h2 className="">Hello, I am </h2>
         <span className="font-bold text-xl">Mohamed Abdille,</span>
-        <div className="flex ">
-          <h2 className='className="font-bold text-3xl text-black mr-2'>a</h2>
+        <div className="flex gap-2">
           <TypeAnimation
-            sequence={['Frontend Web Developer', 2000, 'Freelancer', 2000]}
+            sequence={['a Frontend Web Developer', 2000, 'a Freelancer', 2000]}
             speed={50}
             //wrapper="span"
             repeat={Infinity}
