@@ -52,7 +52,7 @@ export default function Contacts() {
   }, [send]);
 
   return (
-    <div className="py-4 text-center mb-10 items-center flex justify-center flex-col pt-10">
+    <div className="py-4 text-center mb-10 items-center flex justify-center flex-col pt-10 gap-10">
       <div className="w-full">
         {send && (
           <p className="bg-slate-800 text-white text-center text-3xl font-bold">

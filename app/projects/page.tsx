@@ -25,9 +25,9 @@ export default async function Projects() {
   };
 
   return (
-    <div className="text-center mb-10 items-center flex justify-center gap-10 flex-col pt-10">
+    <div className="text-center mb-10 items-center flex justify-center gap-5 flex-col ">
       <h1 className="font-bold text-3xl ">My Projects</h1>
-      <p className="pb-10">Browse my recently created projects</p>
+      <p className="">Browse my recently created projects</p>
       <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10   bg-slate-200 p-10 rounded-lg ">
         {projects.map((project: any) => (
           <motion.div
@@ -49,9 +49,9 @@ export default async function Projects() {
                 <Chip
                   key={tag}
                   label={tag}
-                  color="primary"
+                  //color="primary"
                   size="small"
-                  className="bg-slate-100 text-slate-500 text-sm"
+                  className="bg-slate-100 text-slate-500 text-sm "
                 />
               ))}
             </div>
