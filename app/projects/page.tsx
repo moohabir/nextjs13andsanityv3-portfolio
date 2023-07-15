@@ -40,7 +40,7 @@ export default async function Projects() {
               alt=""
               width={500}
               height={500}
-              className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover object-center"
+              className="over-follow-hidden rounded-sm w-full h-32 object-cover object-center"
             />
             <h2 className="p-4 text-2xl font-bold">{project.title}</h2>
             <p className="pb-4 text-sm flex justify-center items-center text-center mx-auto w-48">
