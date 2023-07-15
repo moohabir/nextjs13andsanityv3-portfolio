@@ -81,7 +81,7 @@ export default function Navbar() {
       <AnimatePresence>
         {show && (
           <motion.div
-            className="hidden md:block absolute z-20 bg-slate-100 w-full h-screen py-10 top-16 "
+            className="hidden md:block absolute z-20 bg-slate-100 w-full h-screen py-10 top-10 "
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
