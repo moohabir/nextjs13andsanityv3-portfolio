@@ -44,6 +44,9 @@ export default async function Projects() {
               className="over-follow-hidden rounded-sm w-full h-32 sm:h-48 object-cover object-center"
             />
             <h2 className="p-4 text-2xl font-bold">{project.title}</h2>
+            <p className="pb-4 text-sm flex justify-center items-center text-center mx-auto w-48">
+              {project.description}
+            </p>
             <h3 className="text-sm">Tech Stacks used :</h3>
             <div className="px-2 grid grid-cols-4 gap-4 md:grid-cols-3 md:gap-4 ">
               {project.tags.map((tag: any) => (
