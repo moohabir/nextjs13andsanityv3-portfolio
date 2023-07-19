@@ -24,7 +24,7 @@ export default async function About() {
       {about.map((about: any) => (
         <div
           key={about.id}
-          className="flex justify-center gap-20 md:flex-col"
+          className="flex justify-center gap-10 md:flex-col"
         >
           <h1>{about.title}</h1>
           <Image
