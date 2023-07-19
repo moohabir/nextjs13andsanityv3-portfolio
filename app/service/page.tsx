@@ -19,10 +19,10 @@ export default async function Service() {
   const services = await client.fetch(query);
 
   return (
-    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10">
+    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10 mb-10">
       <h1 className="font-bold text-3xl pb-2">Service</h1>
       <p className="">Here i am listing some servies i do for my clients.</p>
-      <div className=" grid grid-cols-4 gap-10 md:grid-cols-2 px-4 bg-slate-200  rounded-lg place-items-center py-4">
+      <div className=" grid grid-cols-2 gap-4 md:grid-cols-1 px-4 rounded-lg place-items-center py-4 w-full">
         {services.map((service: any) => (
           <div
             key={service._id}
@@ -36,7 +36,7 @@ export default async function Service() {
               className="rounded-sm w-full h-32 sm:h-48 object-cover object-center overflow-hidden md:py-2 md:mx-"
         />*/}
 
-            <h2 className="mt-2 font-bold text-3xl">{service.title}</h2>
+            <h2 className="mt-2 font-bold text-xl">{service.title}</h2>
             <p>{service.description}</p>
           </div>
         ))}

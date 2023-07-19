@@ -19,10 +19,13 @@ export default async function About() {
   const about = await client.fetch(query);
 
   return (
-    <div className="text-center py-10 mb-10">
+    <div className=" flex flex-col justify-center items-center ">
       <h1 className="text-3xl font-bold mb-5 mt.5 ">About me</h1>
       {about.map((about: any) => (
-        <div key={about.id}>
+        <div
+          key={about.id}
+          className="flex justify-center gap-20 md:flex-col"
+        >
           <h1>{about.title}</h1>
           <Image
             src={urlForImage(about.image.asset._ref).url()}
