@@ -6,6 +6,7 @@ import Skills from '../skills/page';
 import Projects from '../projects/page';
 import Contacts from '../contacts/page';
 import Blog from '../blog/page';
+import Service from '../service/page';
 
 //import { groq } from 'next-sanity';
 //import { client } from '@/lib/client';
@@ -28,6 +29,7 @@ export default function Home() {
       <Skills />
       <About />
       <Projects />
+      <Service />
       <Blog />
       <Contacts />
     </main>

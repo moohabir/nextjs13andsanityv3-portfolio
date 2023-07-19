@@ -29,11 +29,16 @@ const navList = [
   },
   {
     id: 5,
+    title: 'Service',
+    url: '/service',
+  },
+  {
+    id: 6,
     title: 'Blog',
     url: '/blog',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Contact',
     url: '/contacts',
   },

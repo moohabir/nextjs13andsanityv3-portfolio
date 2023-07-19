@@ -24,10 +24,12 @@ export default async function About() {
       {about.map((about: any) => (
         <div key={about.id}>
           <h1>{about.title}</h1>
-          {/*<Image
-            src={urlForImage(about.image.asset).width(50).url()}
+          <Image
+            src={urlForImage(about.image.asset._ref).url()}
+            width={500}
+            height={500}
             alt="hhh"
-      />*/}
+          />
         </div>
       ))}
     </div>
