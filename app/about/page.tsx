@@ -30,11 +30,11 @@ export default async function About() {
           >
             <Image
               src={urlForImage(about.image.asset._ref).url()}
-              width={350}
-              height={350}
+              width={280}
+              height={280}
               alt="hhh"
               objectFit="cover"
-              className=" rounded-full  "
+              className=" rounded-full px-10"
             />
 
             <div className="flex flex-col gap-5">

@@ -119,9 +119,9 @@ export default function Contacts() {
             className="border border-gray-300 px-2 py-1 bg-transparent rounded h-32 "
           />
         </div>
-        <div className="flex flex-start">
+        <div className="flex flex-start font-bold">
           <button
-            className="bg-slate-600 text-white p-4 rounded-xl w-32 "
+            className="bg-slate-600  hover:bg-slate-400 text-white py-4 rounded-xl w-32 "
             type="submit"
           >
             Submit

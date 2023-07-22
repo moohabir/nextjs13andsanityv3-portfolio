@@ -32,7 +32,7 @@ export default function Banner() {
         </p>
 
         <Link href="/contacts">
-          <button className="text-white bg-black hover:bg-slate-600 w-48 rounded-full mt-5 py-4 ">
+          <button className="text-white bg-slate-600 hover:bg-slate-400 w-48 rounded-full mt-5 py-4 ">
             Hire me
           </button>
         </Link>
