@@ -29,9 +29,9 @@ export default async function Service() {
             className="rounded-xl bg-white w-48 "
           >
             {/*<Image
-              src={urlForImage(about.image.asset._ref).url()}
-              width={500}
-              height={500}
+              src={urlForImage(service.image.asset._ref).url()}
+              width={150}
+              height={150}
               alt="hhh"
               className="rounded-full"
             />>*/}
