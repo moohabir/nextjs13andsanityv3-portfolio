@@ -1,7 +1,7 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import myPhoto from '../public/images/myphoto.jpg';
+import myImage from '../public/images/myImage.jpg';
 import Image from 'next/image';
 import { Button } from '@mui/material';
 import Link from 'next/link';
@@ -43,7 +43,7 @@ export default function Banner() {
         style={{ position: 'relative', width: '250px', height: '250px' }}
       >
         <Image
-          src={myPhoto}
+          src={myImage}
           alt="my profile picture here"
           layout="fill"
           objectFit="cover"
