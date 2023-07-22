@@ -1,7 +1,7 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import myPhoto from '../public/myphoto.jpg';
+import myPhoto from '../public/images/myphoto.jpg';
 import Image from 'next/image';
 import { Button } from '@mui/material';
 import Link from 'next/link';

@@ -34,7 +34,7 @@ export default async function About() {
               height={350}
               alt="hhh"
               objectFit="cover"
-              className="rounded-full "
+              className=" rounded-full  "
             />
 
             <div className="flex flex-col gap-5">
