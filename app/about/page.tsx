@@ -38,7 +38,7 @@ export default async function About() {
             />
 
             <div className="flex flex-col gap-5">
-              <h2 className="font-bold text-xl">{about.title}</h2>
+              <h2 className="font-bold ">{about.title}</h2>
               <p className="text-sm">{about.description}</p>
             </div>
           </div>
