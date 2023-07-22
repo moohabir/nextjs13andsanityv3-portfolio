@@ -24,7 +24,7 @@ export default async function About() {
       {about.map((about: any) => (
         <div
           key={about.id}
-          className=" bg-slate-500 rounded-lg px-10 p-4 lg:mx-20 md:mx-0"
+          className="rounded-lg px-10 p-4 lg:mx-20 md:mx-0"
         >
           <h1>{about.title}</h1>
           <div className="flex justify-center gap-10 md:flex-col p-4">
