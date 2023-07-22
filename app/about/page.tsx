@@ -16,29 +16,34 @@ type props = {
 };
 
 export default async function About() {
-  const about = await client.fetch(query);
+  const abouts = await client.fetch(query);
 
   return (
-    <div className=" text-center items-center flex justify-center gap-5 flex-col mt-10 mb-10 px-10 ">
-      <h1 className="text-3xl font-bold mb-5 mt.5 ">About me</h1>
-      {about.map((about: any) => (
-        <div
-          key={about.id}
-          className="rounded-lg px-10 p-4 lg:mx-20 md:mx-0"
-        >
-          <h1>{about.title}</h1>
-          <div className="flex justify-center gap-10 md:flex-col p-4">
-            <p className="text-sm">{about.description}</p>
+    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10 mb-10 mx-20 px-10">
+      <h1 className="font-bold text-3xl pb-2">About me</h1>
+
+      <div className=" px-4 rounded-lg  py-4 ">
+        {abouts.map((about: any) => (
+          <div
+            key={about._id}
+            className="rounded-xl bg-white  flex gap-10 md:flex-col-reverse justify-center m-auto items-center px-20 mx-20 md:px-0 md:mx-0"
+          >
             <Image
               src={urlForImage(about.image.asset._ref).url()}
-              width={500}
-              height={500}
+              width={350}
+              height={350}
               alt="hhh"
-              className="rounded-full"
+              objectFit="cover"
+              className="rounded-full "
             />
+
+            <div className="flex flex-col gap-5">
+              <h2 className="mt-2 font-bold text-xl">{about.title}</h2>
+              <p className="text-sm">{about.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

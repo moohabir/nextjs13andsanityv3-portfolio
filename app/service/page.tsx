@@ -29,12 +29,12 @@ export default async function Service() {
             className="rounded-xl bg-white w-48 "
           >
             {/*<Image
-              src={urlForImage(service?.image?.asset?._ref).url()}
-              alt=""
-              width={50}
-              height={50}
-              className="rounded-sm w-full h-32 sm:h-48 object-cover object-center overflow-hidden md:py-2 md:mx-"
-        />*/}
+              src={urlForImage(about.image.asset._ref).url()}
+              width={500}
+              height={500}
+              alt="hhh"
+              className="rounded-full"
+            />>*/}
 
             <h2 className="mt-2 font-bold text-xl">{service.title}</h2>
             <p>{service.description}</p>
