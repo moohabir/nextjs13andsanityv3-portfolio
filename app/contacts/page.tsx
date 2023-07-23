@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import Link from 'next/link';
 
 export default function Contacts() {
   const [send, setSend] = useState(false);
@@ -127,6 +128,15 @@ export default function Contacts() {
             Submit
           </button>
         </div>
+        <p>
+          By submitting this form, I confirm that I have read and understood the
+          My Portfolio{' '}
+          <Link href="/privacy">
+            <span className="text-red-300 hover:underline">
+              Privacy Statement.
+            </span>
+          </Link>
+        </p>
       </form>
     </div>
   );
