@@ -128,11 +128,17 @@ export default function Contacts() {
             Submit
           </button>
         </div>
-        <p>
+        <p className="">
+          <input
+            type="checkbox"
+            name="privacy"
+            value="privacy"
+            className=""
+          />
           By submitting this form, I confirm that I have read and understood the
-          My Portfolio{' '}
+          My Portfolio
           <Link href="/privacy">
-            <span className="text-red-300 hover:underline">
+            <span className="text-red-300 hover:underline text-sm">
               Privacy Statement.
             </span>
           </Link>
