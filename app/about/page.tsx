@@ -26,7 +26,7 @@ export default async function About() {
         {abouts.map((about: any) => (
           <div
             key={about._id}
-            className="rounded-xl bg-white  flex md:flex-col-reverse justify-center m-auto items-center px-20 mx-20 md:px-0 md:mx-0"
+            className="rounded-xl bg-white gap-5  flex md:flex-col-reverse justify-center m-auto items-center px-20 mx-20 md:px-0 md:mx-0"
           >
             <Image
               src={urlForImage(about.image.asset._ref).url()}
