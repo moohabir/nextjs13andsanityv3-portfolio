@@ -19,7 +19,7 @@ export default async function About() {
   const abouts = await client.fetch(query, { cache: 'no-store' });
 
   return (
-    <div className="text-center items-center flex flex-col mt-10 mb-10 pt-10 ">
+    <div className="text-center items-center justify-center flex flex-col m-auto  mt-10 mb-10  mx-20 px-20">
       <h1 className="font-bold text-3xl">About me</h1>
 
       <div className=" px-4  py-4 mx-20">
