@@ -21,6 +21,9 @@ import Service from '../service/page';
 //type props = {
 //query: string;
 //};
+
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <main className="bg-#ffff text-black ">
