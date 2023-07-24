@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 export default function Contacts() {
   const [send, setSend] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -12,6 +13,11 @@ export default function Contacts() {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!email || !name || !message || !checked) {
+      alert('Please fill all fields');
+      return;
+    }
 
     if (form.current) {
       emailjs
@@ -23,17 +29,11 @@ export default function Contacts() {
         )
         .then(
           (result) => {
-            //alert(result.text);
-            if (result.text) {
-              setName('');
-              setEmail('');
-              setMessage('');
-            }
+            setName('');
+            setEmail('');
+            setMessage('');
+            setChecked(false);
             setSend(true);
-            if (!email || !name || !message) {
-              setSend(false);
-              alert('please fill all fields');
-            }
           },
           (error) => {
             alert(error.text);
@@ -54,12 +54,12 @@ export default function Contacts() {
 
   return (
     <div className="text-center  flex justify-center gap-5 flex-col mt-20 mb-20  w-1/2 mx-auto ">
-      {/*send && (
-          <p className="bg-slate-800 text-white text-center text-3xl font-bold">
-            Thanks. Your Message has been sent Succesfully
-          </p>
-        )*/}
       <h1 className="text-center text-3xl font-bold ">Contact me</h1>
+      {send && (
+        <p className="bg-white text-black text-center text-2xl font-bold">
+          Thanks. Your Message has been sent Succesfully
+        </p>
+      )}
       <form
         onSubmit={sendEmail}
         ref={form}
@@ -125,14 +125,16 @@ export default function Contacts() {
             className="bg-slate-600  hover:bg-slate-400 text-white py-4 rounded-xl w-32 "
             type="submit"
           >
-            Submit
+            {send ? 'Sending...' : 'Submit'}
           </button>
         </div>
         <p className="">
           <input
             type="checkbox"
+            required
+            checked={checked}
             name="privacy"
-            value="privacy"
+            onChange={(e) => setChecked(e.target.checked)}
             className=""
           />
           By submitting this form, I confirm that I have read and understood the
