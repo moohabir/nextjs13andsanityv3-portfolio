@@ -19,14 +19,14 @@ export default async function About() {
   const abouts = await client.fetch(query);
 
   return (
-    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10 mb-10 ">
+    <div className="text-center items-center flex flex-col mt-10 pt-10 ">
       <h1 className="font-bold text-3xl">About me</h1>
 
-      <div className=" px-4 rounded-lg  py-4 ">
+      <div className=" px-4  py-4 mx-20">
         {abouts.map((about: any) => (
           <div
             key={about._id}
-            className="rounded-xl bg-white gap-5  flex md:flex-col-reverse justify-center m-auto items-center px-20 mx-10 md:px-0 md:mx-0"
+            className=" gap-5  flex md:flex-col-reverse justify-center m-auto items-center "
           >
             <div
               className="rounded-full  p-4 "
@@ -37,7 +37,7 @@ export default async function About() {
                 alt="my profile picture here"
                 layout="fill"
                 objectFit="cover"
-                className="rounded-full "
+                className="rounded-full lg:px-10"
               />
             </div>
 
