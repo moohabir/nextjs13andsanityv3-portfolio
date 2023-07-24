@@ -19,7 +19,7 @@ export default async function Skills() {
   const skills = await client.fetch(query, { cache: 'no-store' });
 
   return (
-    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10">
+    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10 m-auto">
       <h1 className="font-bold text-3xl pb-2">My Skills</h1>
       <p className="">
         Here i am listing some skills and tools i am familir with

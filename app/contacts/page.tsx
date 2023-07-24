@@ -53,7 +53,7 @@ export default function Contacts() {
   }, [send]);
 
   return (
-    <div className="text-center  flex justify-center gap-5 flex-col mt-20 mb-20  w-1/2 mx-auto ">
+    <div className="text-center  flex justify-center gap-5 flex-col mt-20 mb-20  w-full mx-auto ">
       <h1 className="text-center text-3xl font-bold ">Contact me</h1>
       {send && (
         <p className="bg-white text-black text-center text-2xl font-bold">
@@ -63,7 +63,7 @@ export default function Contacts() {
       <form
         onSubmit={sendEmail}
         ref={form}
-        className="flex flex-col  m-auto bg-slate-200 w-full p-4 gap-5"
+        className="flex flex-col  m-auto bg-slate-200 w-1/2 p-4 gap-5 "
       >
         <div className="flex flex-col gap-2">
           <label
@@ -128,7 +128,7 @@ export default function Contacts() {
             {send ? 'Sending...' : 'Submit'}
           </button>
         </div>
-        <p className="">
+        <div className="">
           <input
             type="checkbox"
             required
@@ -137,14 +137,16 @@ export default function Contacts() {
             onChange={(e) => setChecked(e.target.checked)}
             className=""
           />
-          By submitting this form, I confirm that I have read and understood the
-          My Portfolio
+          <span className="px-1">
+            By submitting this form, I confirm that I have read and understood
+            the My Portfolio
+          </span>
           <Link href="/privacy">
-            <span className="text-red-300 hover:underline text-sm">
+            <span className="text-red-300 hover:underline text-sm px-1">
               Privacy Statement.
             </span>
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   );
