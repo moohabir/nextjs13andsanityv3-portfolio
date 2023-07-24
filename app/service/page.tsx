@@ -16,7 +16,7 @@ type props = {
 };
 
 export default async function Service() {
-  const services = await client.fetch(query);
+  const services = await client.fetch(query, { cache: 'no-store' });
 
   return (
     <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 pt-10 mb-10">

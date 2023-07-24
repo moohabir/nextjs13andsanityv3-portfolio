@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 import { Metadata } from 'next';
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: 'Portfolio',
   description: 'Portfolio crreated using next.js13, sanity3 and mui',

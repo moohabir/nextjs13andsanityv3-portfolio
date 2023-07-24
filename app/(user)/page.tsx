@@ -8,20 +8,6 @@ import Contacts from '../contacts/page';
 import Blog from '../blog/page';
 import Service from '../service/page';
 
-//import { groq } from 'next-sanity';
-//import { client } from '@/lib/client';
-//import BlogList from './components/BlogList';
-
-//const query = groq`
-//*[_type=="post"]{
-// ...,
-//author->
-//}|order(_createAt desc)`;
-
-//type props = {
-//query: string;
-//};
-
 export const revalidate = 0;
 
 export default function Home() {

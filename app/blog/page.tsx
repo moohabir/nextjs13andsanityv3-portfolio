@@ -16,8 +16,8 @@ type Props = {
 };
 
 export default async function Blog() {
-  //const posts = await client.fetch(query, { cache: 'no-store' });
-  const posts = await client.fetch(query);
+  const posts = await client.fetch(query, { cache: 'no-store' });
+  //const posts = await client.fetch(query);
   // const posts = await client.fetch(query, {}, { cache: 'no-store' });
 
   return (

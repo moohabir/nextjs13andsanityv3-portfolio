@@ -14,7 +14,7 @@ author->
 }|order(_createAt desc)`;
 
 export default async function Projects() {
-  const projects = await client.fetch(query);
+  const projects = await client.fetch(query, { cache: 'no-store' });
 
   const hoverAnimation = {
     scale: 1.1,
