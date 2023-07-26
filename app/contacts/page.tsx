@@ -53,17 +53,18 @@ export default function Contacts() {
   }, [send]);
 
   return (
-    <div className="text-center  flex justify-center gap-5 flex-col mt-20 mb-20  w-full mx-auto ">
+    <div className="flex   flex-col mt-20 mb-20  w-full mx-auto ">
       <h1 className="text-center text-3xl font-bold ">Contact me</h1>
+      <p className="text-center  text-sm mb-5 mt-1">Please fill the form.</p>
       {send && (
         <p className="bg-white text-black text-center text-2xl font-bold">
-          Thanks. Your Message has been sent Succesfully
+          Thanks. Your Message has been sent Succesfully.
         </p>
       )}
       <form
         onSubmit={sendEmail}
         ref={form}
-        className="flex flex-col  m-auto bg-slate-200 w-1/2 p-4 gap-5 "
+        className="flex flex-col  m-auto bg-slate-200 w-1/2 p-4 gap-5 md:w-auto md:mx-10"
       >
         <div className="flex flex-col gap-2">
           <label
