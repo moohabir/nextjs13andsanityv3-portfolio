@@ -19,9 +19,9 @@ export default async function Skills() {
   const skills = await client.fetch(query, { cache: 'no-store' });
 
   return (
-    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 mb-10  m-auto">
+    <div className="text-center items-center flex justify-center gap-5 flex-col mt-10 mb-10  m-auto ">
       <h1 className="font-bold text-3xl pb-2">My Skills</h1>
-      <p className="">
+      <p className="px-10">
         Here i am listing some skills and tools i am familir with
       </p>
       <div className=" grid grid-cols-4 gap-10 md:grid-cols-2 px-4 bg-slate-200  rounded-lg place-items-center py-4">
