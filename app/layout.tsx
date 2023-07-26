@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 import { Metadata } from 'next';
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 export const metadata: Metadata = {
   title: 'Portfolio',

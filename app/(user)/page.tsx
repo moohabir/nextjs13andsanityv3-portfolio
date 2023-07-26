@@ -8,7 +8,7 @@ import Contacts from '../contacts/page';
 import Blog from '../blog/page';
 import Service from '../service/page';
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 export default function Home() {
   return (
