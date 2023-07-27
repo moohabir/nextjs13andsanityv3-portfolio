@@ -3,7 +3,7 @@ import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 const inter = Inter({ subsets: ['latin'] });
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const revalidate = 10;
 
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: 'Portfolio crreated using next.js13, sanity3 and mui',
 };
 
-//className="min-h-screen bg-slate-50 dark:bg-black dark:text-white"
 export default function RootLayout({
   children,
 }: {
