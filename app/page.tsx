@@ -12,7 +12,7 @@ export const revalidate = 10;
 
 export default function Home() {
   return (
-    <main className="bg-#ffff text-black flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="bg-#ffff text-black ">
       <Banner />
       <Skills />
       <About />
