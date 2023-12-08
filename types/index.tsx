@@ -27,7 +27,8 @@ export interface About {
 export interface NavList {
   id: number;
   title: string;
-  url: string;
+  url: any;
+  // url: string;
 }
 
 export interface Skills {

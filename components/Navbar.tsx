@@ -1,78 +1,115 @@
 'use client';
-import { groq } from 'next-sanity';
-import { client } from '@/lib/client';
-import Image from 'next/image';
-import { urlForImage } from '@/lib/image';
-import { motion } from 'framer-motion';
+import { NavList } from '@/types';
+import { Menu, Close } from '@mui/icons-material';
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import { Chip } from '@mui/material';
+import { Router } from 'next/router';
+import { useState } from 'react';
 
-const query = groq`
-*[_type=="project"]{
- ...,
-author->
-}|order(_createAt desc)`;
+const navList = [
+  {
+    id: 1,
+    title: 'Home',
+    url: '/',
+  },
+  {
+    id: 2,
+    title: 'About',
+    url: '/about',
+  },
+  {
+    id: 3,
+    title: 'Skills',
+    url: '/skills',
+  },
 
-export default async function Projects() {
-  const projects = await client.fetch(query, { cache: 'no-store' });
+  {
+    id: 4,
+    title: 'Projects',
+    url: '/projects',
+  },
+  {
+    id: 5,
+    title: 'Services',
+    url: '/service',
+  },
 
-  const hoverAnimation = {
-    scale: 1.1,
-    transition: {
-      duration: 0.3,
-      ease: 'easeInOut',
-    },
+  {
+    id: 6,
+    title: 'Blog',
+    url: '/blog',
+  },
+  {
+    id: 7,
+    title: 'Contact',
+    url: '/contacts',
+  },
+];
+
+export default function Navbar() {
+  const [show, setShow] = useState(false);
+
+  const handleClick = (url: any) => {
+    setShow(false);
   };
 
   return (
-    <div className="text-center mb-10 items-center flex justify-center gap-5 flex-col ">
-      <h1 className="font-bold text-3xl ">My Projects</h1>
-      <p className="">Browse my recently created projects</p>
-      <div className="grid grid-cols-2 gap-10  md:grid-cols-1 md:gap-10   bg-slate-200 p-10 rounded-lg ">
-        {projects.map((project: any) => (
-          <motion.div
-            key={project.id}
-            className="rounded-xl bg-slate-100 p-4 "
-            whileHover={hoverAnimation}
+    <div className="flex justify-center gap-10 sticky top-0 z-10 py-3 bg-slate-100">
+      <Link
+        href="/"
+        className="hover:animate-bounce  px-20 text-black text-2xl font-bold"
+      >
+        MY Portfolio
+      </Link>
+
+      {/* Mobile version */}
+      <div className="hidden md:block">
+        <button
+          className="text-black text-2xl font-bold focus:outline-none"
+          onClick={() => setShow(!show)}
+        >
+          {show ? <Close /> : <Menu />}
+        </button>
+      </div>
+
+      {/* Desktop version */}
+      <div className="flex flex-row gap-20 md:hidden md:space-y-2">
+        {navList.map((list: NavList) => (
+          <nav
+            key={list.id}
+            className="text-black text-center hover:text-slate-500"
           >
-            <Image
-              src={urlForImage(project?.image?.asset?._ref).url()}
-              alt=""
-              width={500}
-              height={500}
-              className="over-follow-hidden rounded-sm w-full h-32 object-cover object-center"
-            />
-            <h2 className="p-4 text-2xl font-bold">{project.title}</h2>
-            <p className="pb-4 text-sm flex justify-center items-center text-center mx-auto w-48">
-              {project.description}
-            </p>
-            <h3 className="text-sm">Tech Stacks used :</h3>
-            <div className="px-2 grid grid-cols-4 gap-4 md:grid-cols-3 md:gap-4 ">
-              {project.tags.map((tag: any) => (
-                <Chip
-                  key={tag}
-                  label={tag}
-                  //color="primary"
-                  size="small"
-                  className="bg-slate-100 text-slate-500 text-sm "
-                />
-              ))}
-            </div>
-            <div className="flex gap-4 px-4 mt-4 ">
-              <Link href={project?.link}>
-                <button className="bg-black text-white w-32 rounded-md">
-                  Demo
-                </button>
-              </Link>
-              <Link href={project?.code}>
-                <button className="bg-slate-600 text-white w-32 rounded-md">
-                  Code
-                </button>
-              </Link>
-            </div>
-          </motion.div>
+            <Link href={list.url}>{list.title}</Link>
+          </nav>
         ))}
       </div>
+
+      {/* Mobile version - Dropdown */}
+      <AnimatePresence>
+        {show && (
+          <motion.div
+            className="hidden md:block absolute z-20 bg-slate-100 w-full h-screen py-10 top-10 "
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.5 }}
+          >
+            {navList.map((list) => (
+              <motion.nav
+                key={list.id}
+                className="text-black text-center hover:text-slate-500 block py-2"
+                onClick={() => handleClick(list.url)}
+                initial={{ opacity: 0, x: '100%' }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: '100%' }}
+                transition={{ duration: 0.5 }}
+              >
+                <Link href={list.url}>{list.title}</Link>
+              </motion.nav>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
