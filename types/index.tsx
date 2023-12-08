@@ -1,3 +1,5 @@
+import { Url } from 'next/dist/shared/lib/router/router';
+
 export interface Post {
   _id: number | string;
   name: any;
@@ -25,7 +27,7 @@ export interface About {
 export interface NavList {
   id: number;
   title: string;
-  url: any;
+  url: string;
 }
 
 export interface Skills {

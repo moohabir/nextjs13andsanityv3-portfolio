@@ -58,17 +58,22 @@ export default async function Projects() {
                 />
               ))}
             </div>
+
             <div className="flex gap-4 px-4 mt-4 ">
-              <Link href={project?.link}>
-                <button className="bg-black text-white w-32 rounded-md">
-                  Demo
-                </button>
-              </Link>
-              <Link href={project?.code}>
-                <button className="bg-slate-600 text-white w-32 rounded-md">
-                  Code
-                </button>
-              </Link>
+              {project?.link && (
+                <Link href={project.link}>
+                  <button className="bg-black text-white w-32 rounded-md">
+                    Demo
+                  </button>
+                </Link>
+              )}
+              {project?.code && (
+                <Link href={project.code}>
+                  <button className="bg-slate-600 text-white w-32 rounded-md">
+                    Code
+                  </button>
+                </Link>
+              )}
             </div>
           </motion.div>
         ))}
